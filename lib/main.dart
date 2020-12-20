@@ -38,16 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.cast),
-          centerTitle: true,
-          title: Text("Google Podcasts"),
-          actions: [
-            CircleAvatar(
-                backgroundImage: NetworkImage(
-                    "https://i.pinimg.com/originals/d4/22/d7/d422d7642f00c404fdb5fea5393590a2.jpg")),
-          ],
-        ),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: page,
             items: [

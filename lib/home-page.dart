@@ -55,100 +55,77 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // return LayoutBuilder(
-    //     builder: (BuildContext context, BoxConstraints viewportConstraints) {
-    //   return SingleChildScrollView(
-    //     child: ConstrainedBox(
-    //       constraints: BoxConstraints(
-    //         minHeight: viewportConstraints.maxHeight,
-    //       ),
-    //       child: IntrinsicHeight(
-    //         child: Column(
-    //           children: <Widget>[
-    //             Container(
-    //               // A fixed-height child.
-    //               color: const Color(0xffeeee00), // Yellow
-    //               height: 120.0,
-    //               alignment: Alignment.center,
-    //               child: const Text('Fixed Height Content'),
-    //             ),
-    //             Expanded(
-    //               // A flexible child that will grow to fit the viewport but
-    //               // still be at least as big as necessary to fit its contents.
-    //               child: Container(
-    //                 color: const Color(0xffee0000), // Red
-    //                 height: 120.0,
-    //                 alignment: Alignment.center,
-    //                 child: const Text('Flexible Content'),
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   );
-    // });
-    return Column(children: [
-      Expanded(
-        child: ListView(children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            controller: _sc,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(children: [
-                _getPodcastCover(Colors.red, 100),
-                _getPodcastCover(Colors.green, 100),
-                _getPodcastCover(Colors.yellow, 100),
-                _getPodcastCover(Colors.blue, 100),
-                _getPodcastCover(Colors.yellow[900], 100),
-              ]),
-            ),
+    return CustomScrollView(slivers: [
+      SliverAppBar(
+        leading: Icon(Icons.cast),
+        centerTitle: true,
+        title: Text("Google Podcasts"),
+        floating: true,
+        actions: [
+          CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://i.pinimg.com/originals/d4/22/d7/d422d7642f00c404fdb5fea5393590a2.jpg")),
+        ],
+      ),
+      SliverList(
+          delegate: SliverChildListDelegate([
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          controller: _sc,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(children: [
+              _getPodcastCover(Colors.red, 100),
+              _getPodcastCover(Colors.green, 100),
+              _getPodcastCover(Colors.yellow, 100),
+              _getPodcastCover(Colors.blue, 100),
+              _getPodcastCover(Colors.yellow[900], 100),
+            ]),
           ),
-          _getEpisodeRow(Colors.red),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-          _getEpisodeRow(Colors.red),
-          _getDivider(),
-          _getEpisodeRow(Colors.red),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-          _getEpisodeRow(Colors.green),
-          _getDivider(),
-          _getEpisodeRow(Colors.yellow),
-          _getDivider(),
-          _getEpisodeRow(Colors.blue),
-          _getDivider(),
-        ]),
-      )
+        ),
+        _getEpisodeRow(Colors.red),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+        _getEpisodeRow(Colors.red),
+        _getDivider(),
+        _getEpisodeRow(Colors.red),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+        _getEpisodeRow(Colors.green),
+        _getDivider(),
+        _getEpisodeRow(Colors.yellow),
+        _getDivider(),
+        _getEpisodeRow(Colors.blue),
+        _getDivider(),
+      ]))
     ]);
   }
 }
