@@ -13,13 +13,13 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getPodcastCover(Color color, double size) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
           height: size,
           width: size,
           decoration: BoxDecoration(
               color: color,
-              borderRadius: BorderRadius.all(Radius.circular(10.0)))),
+              borderRadius: BorderRadius.all(Radius.circular(size / 8)))),
     );
   }
 
@@ -35,11 +35,19 @@ class _HomePageState extends State<HomePage> {
 
   Widget _getEpisodeRow(Color color) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      _getPodcastTitle(color),
-      Text("Lorem Ipsum Dolor Sit Amet",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-      Text(
-          "Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit Amet"),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _getPodcastTitle(color),
+            Text("Lorem Ipsum Dolor Sit Amet",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            Text(
+                "Lorem Ipsum Dolor Sit Amet Lorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit AmetLorem Ipsum Dolor Sit Amet"),
+          ],
+        ),
+      ),
     ]);
   }
 
@@ -57,9 +65,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: [
       SliverAppBar(
-        leading: Icon(Icons.cast),
+        leading: Icon(Icons.cast, color: Colors.grey[900]),
         centerTitle: true,
-        title: Text("Google Podcasts"),
+        backgroundColor: Colors.white,
+        title:
+            Text("Google Podcasts", style: TextStyle(color: Colors.grey[900])),
         floating: true,
         actions: [
           CircleAvatar(
@@ -73,13 +83,13 @@ class _HomePageState extends State<HomePage> {
           scrollDirection: Axis.horizontal,
           controller: _sc,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4.0),
             child: Row(children: [
-              _getPodcastCover(Colors.red, 100),
-              _getPodcastCover(Colors.green, 100),
-              _getPodcastCover(Colors.yellow, 100),
-              _getPodcastCover(Colors.blue, 100),
-              _getPodcastCover(Colors.yellow[900], 100),
+              _getPodcastCover(Colors.red, 75),
+              _getPodcastCover(Colors.green, 75),
+              _getPodcastCover(Colors.yellow, 75),
+              _getPodcastCover(Colors.blue, 75),
+              _getPodcastCover(Colors.yellow[900], 75),
             ]),
           ),
         ),
