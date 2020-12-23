@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       SliverList(
-          delegate: SliverChildListDelegate([
+          delegate: SliverChildListDelegate.fixed([
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           controller: _sc,
